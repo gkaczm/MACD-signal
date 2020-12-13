@@ -4,6 +4,7 @@ fpath = "dane.csv"
 kapitalInit = 1000
 datalen = 1000
 
+
 def srednia(max, data, index, colname):
     a = 1 - 2 / (max + 1)
     licznik = data.loc[index, colname]
@@ -13,6 +14,7 @@ def srednia(max, data, index, colname):
         mianownik += a ** j
     srednia = licznik / mianownik
     return srednia
+
 
 def macdf(data, len, colname):
     x = 12
@@ -28,6 +30,7 @@ def macdf(data, len, colname):
         macd.at[i, colname] = 0
     return macd
 
+
 def signalf(data, len, colname):
     n = 9
     signal = data.filter([colname])
@@ -37,6 +40,7 @@ def signalf(data, len, colname):
     for i in range(0, n):
         signal.at[i, colname] = 0
     return signal
+
 
 def investsim(nok, rates, msdf, ln, exchname, macdname, signalname):
 #macd>signal - buy
